@@ -6,7 +6,7 @@ export const getProduct = async (url) => {
             }
         });
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     return json;
 }
 
@@ -25,7 +25,7 @@ export const addNewProduct = async (url, data) => {
             throw new Error(await response.text());
         }
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
     } catch (e) { console.log(e) }
 }
 
@@ -43,7 +43,7 @@ export const deleteProduct = async (url, id) => {
             throw new Error(await response.text());
         }
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
     } catch (error) {
         console.log(error);
     }
@@ -64,6 +64,6 @@ export const updateProduct = async (url, id, data) => {
             throw new Error(await response.text());
         }
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
     } catch (e) { console.log(e) }
 }
