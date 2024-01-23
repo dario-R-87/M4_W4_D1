@@ -1,4 +1,8 @@
 a {
-    /* color: inherit; */
-    text-decoration: none !important;
-  }
+  /* color: inherit; */
+  text-decoration: none !important;
+}
+
+#actions:hover {
+  cursor: pointer;
+}
