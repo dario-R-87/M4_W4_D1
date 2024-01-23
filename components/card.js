@@ -1,6 +1,5 @@
 export const getCard = (prod) => {
-
-    return `
+  return `
     <div class="card mb-4 shadow-sm">
         <div class="row g-0">
            <div class="col-md-4">
@@ -18,39 +17,47 @@ export const getCard = (prod) => {
              </div>
         </div>
     </div>`;
-}
+};
 
 export const getCardAction = (prod) => {
-
   return `
   <div class="card mb-4 shadow-sm d-flex justify-content-between">
       <h5 class="card-title">${prod.name}</h5>
       <a href="#">Edit</a>
       <button
        id="${prod._id}"
+       name="${prod.name}"
        type="button"
-       class="w-25"
+       class="delete w-25"
        data-bs-toggle="modal"
        data-bs-target="#deleteModal"
       >
-        <a href="#">Delete</a>
+        Delete
       </button>
   </div>`;
-}
+};
 
 export const getCardDetails = (card) => {
-        return `
+  return `
         <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="${card.imageUrl}" class="img-fluid rounded-start" alt="image product">
+            <img src="${
+              card.imageUrl
+            }" class="img-fluid rounded-start" alt="image product">
           </div>
           <div class="col-md-8 d-flex flex-column">
             <div class="card-body">
               <h5 class="card-title">${card.name}</h5>
-              <p class="card-text"><span class="fw-bold">Description</span>:<br> ${card.description}</p>
-              <p class="card-text"><small class="text-muted"><span class="fw-bold">Brand</span>: ${card.brand}</small></p>
-              <p class="card-text"><small class="text-muted"><span class="fw-bold">Price</span>: $${card.price.toFixed(2)}</small></p>
+              <p class="card-text"><span class="fw-bold">Description</span>:<br> ${
+                card.description
+              }</p>
+              <p class="card-text"><small class="text-muted"><span class="fw-bold">Brand</span>: ${
+                card.brand
+              }</small></p>
+              <p class="card-text"><small class="text-muted"><span class="fw-bold">Price</span>: $${card.price.toFixed(
+                2
+              )}</small></p>
             </div>
             <div class="d-flex gap-3 justify-content-end pb-3">
              <button class="btn btn-success "><a class="text-light" href="index.html">Home</a></button>
@@ -60,4 +67,4 @@ export const getCardDetails = (card) => {
         </div>
       </div>
         `;
-}
+};

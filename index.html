@@ -32,56 +32,55 @@
     <div class="container my-5">
       <h1 class="text-center text-primary">DR MARKETPLACE</h1>
 
-
-    <!-- MODAL DELETE -->
-    <div
-      class="modal fade"
-      id="deleteModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Product</h1>
-            <button
-              id="close"
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-          </div>
-          <div class="modal-footer justify-content-between">
-            <div id="tot" class="fw-bold">Are you sure?</div>
-            <div>
+      <!-- MODAL DELETE -->
+      <div
+        class="modal fade"
+        id="deleteModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Delete Product
+              </h1>
               <button
+                id="close"
                 type="button"
-                class="btn btn-secondary"
+                class="btn-close"
                 data-bs-dismiss="modal"
-              >
-                No
-              </button>
-              <button id="delete" type="button" class="btn btn-danger">
-                Yes
-              </button>
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer justify-content-between">
+              <div id="tot" class="fw-bold">Are you sure?</div>
+              <div>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  No
+                </button>
+                <button id="yes" type="button" class="btn btn-danger">
+                  Yes
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-      <!--     END MODAL DELETE        -->   
+      <!--     END MODAL DELETE        -->
 
-
-      <!--     LIST        -->      
+      <!--     LIST        -->
       <div class="my-2 row px-3" id="produtct_list">
         <div class="mt-5 d-flex align-items-center justify-content-between">
-         <h1 class="text-warning">Our Products</h1>
-         <div class="d-flex gap-3 justify-content-end fs-1 my-3">
-           <ion-icon id="actions" name="create-outline"></ion-icon>
+          <h1 class="text-warning">Our Products</h1>
+          <div class="d-flex gap-3 justify-content-end fs-1 my-3">
+            <ion-icon id="actions" name="create-outline"></ion-icon>
             <ion-icon name="cart"></ion-icon>
           </div>
         </div>
@@ -122,12 +121,15 @@
       <div class="my-2 row px-3 d-none" id="produtct_actions">
         <div class="mt-5 d-flex align-items-center justify-content-between">
           <h1 class="text-warning">
-            <a href="./index.html"><ion-icon name="arrow-undo-outline"></ion-icon></a> Actions
+            <a href="./index.html"
+              ><ion-icon name="arrow-undo-outline"></ion-icon
+            ></a>
+            Actions
           </h1>
           <div class="d-flex gap-3 justify-content-end fs-1 my-3">
             <ion-icon name="add-circle-outline"></ion-icon>
-           </div>
-         </div>
+          </div>
+        </div>
       </div>
       <!-- END ACTIONS -->
     </div>
