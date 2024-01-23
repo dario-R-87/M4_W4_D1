@@ -82,12 +82,20 @@ const productsInit = () => {
   });
 };
 
+//const deleteHandler = ()=>{}
+
 const start = async () => {
   //productsInit();
   const productList = await utility.getProduct(url);
   products.showProducts(productList);
   const actions = document.querySelector("#actions");
   actions.addEventListener("click",()=>{products.showActions(productList)});
+  const deleteConf = document.querySelector("#delete");
+  deleteConf.addEventListener("click",(event)=>{
+    //utility.deleteProduct(url,event.target.id);
+    //alert(event.target.id);
+  });
+
 };
 
 
