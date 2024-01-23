@@ -85,4 +85,3 @@ const start = async () => {
 }
 
 start();
-utility.deleteProduct(url,"65af761ebd5d12001890d350")

@@ -6,7 +6,7 @@ export const getProduct = async (url) => {
             }
         });
     const json = await response.json();
-    // console.log(json);
+    console.log(json);
     return json;
 }
 
@@ -66,4 +66,16 @@ export const updateProduct = async (url, id, data) => {
         const json = await response.json();
         // console.log(json);
     } catch (e) { console.log(e) }
+}
+
+export const getProductById = async (url, id) => {
+    const response = await
+        fetch(url+id, {
+            headers: {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmNzEzOGJkNWQxMjAwMTg5MGQzNGEiLCJpYXQiOjE3MDU5OTY2MDEsImV4cCI6MTcwNzIwNjIwMX0.rqjzekJT_GldBSBaPaU7hvuNZqNKslByYrGtOgoG19g",
+            }
+        });
+    const json = await response.json();
+    console.log(json);
+    return json;
 }
