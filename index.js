@@ -2,6 +2,7 @@ import * as utility from "./components/utility.js";
 import * as products from "./components/productList.js";
 
 const url = "https://striveschool-api.herokuapp.com/api/product/";
+
 const productsInit = () => {
   const newProducts = [
     {
@@ -80,10 +81,16 @@ const productsInit = () => {
     utility.addNewProduct(url, prod);
   });
 };
+
 const start = async () => {
   //productsInit();
-  // const productList = await utility.getProduct(url);
-  // products.showProducts(productList);
+  const productList = await utility.getProduct(url);
+  products.showProducts(productList);
+  const actions = document.querySelector("#actions");
+  actions.addEventListener("click",()=>{products.showActions(productList)});
 };
 
+
 start();
+
+

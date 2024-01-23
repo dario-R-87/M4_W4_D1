@@ -31,18 +31,26 @@
   <body>
     <div class="container my-5">
       <h1 class="text-center text-primary">DR MARKETPLACE</h1>
-      <div class="my-5 row px-3 bg-primary" id="produtct_list">
-        <h1 class="text-warning">Our Products</h1>
-        <div class="d-flex gap-3 justify-content-end fs-1 my-3">
-          <ion-icon name="create-outline"></ion-icon>
-          <ion-icon name="cart"></ion-icon>
+      <!--     LIST        -->      
+      <div class="my-2 row px-3" id="produtct_list">
+        <div class="mt-5 d-flex align-items-center justify-content-between">
+         <h1 class="text-warning">Our Products</h1>
+         <div class="d-flex gap-3 justify-content-end fs-1 my-3">
+           <ion-icon id="actions" name="create-outline"></ion-icon>
+            <ion-icon name="cart"></ion-icon>
+          </div>
         </div>
+        <!-- <h1 class="text-warning">Our Products</h1>
+        <div class="d-flex gap-3 justify-content-end fs-1 my-3">
+          <ion-icon id="actions" name="create-outline"></ion-icon>
+          <ion-icon name="cart"></ion-icon>
+        </div> -->
         <!-- -->
-        <div class="card mb-4 shadow-sm">
+        <!-- <div class="card mb-4 shadow-sm">
           <div class="row g-0">
             <div class="col-md-4">
               <img
-                src="${prod.imageUrl}"
+                src="./assets/p1_.jpg"
                 class="img-fluid rounded-start"
                 alt="Product Image"
               />
@@ -62,9 +70,21 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- a -->
       </div>
+      <!--     ACTIONS        -->
+      <div class="my-2 row px-3" id="produtct_actions">
+        <div class="mt-5 d-flex align-items-center justify-content-between">
+          <h1 class="text-warning">
+            <a href="./index.html"><ion-icon name="arrow-undo-outline"></ion-icon></a> Actions
+          </h1>
+          <div class="d-flex gap-3 justify-content-end fs-1 my-3">
+            <ion-icon name="add-circle-outline"></ion-icon>
+           </div>
+         </div>
+      </div>
+      <!-- END ACTIONS -->
     </div>
   </body>
 </html>

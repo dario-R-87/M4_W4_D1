@@ -20,6 +20,15 @@ export const getCard = (prod) => {
     </div>`;
 }
 
+export const getCardAction = (prod) => {
+
+  return `
+  <div class="card mb-4 shadow-sm d-flex justify-content-between">
+      <h5 class="card-title">${prod.name}</h5>
+      <a href="#">Edit</a>
+      <a href="#">Delete</a>
+  </div>`;
+}
 
 export const getCardDetails = (card) => {
         return `
