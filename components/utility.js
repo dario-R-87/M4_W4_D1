@@ -26,7 +26,7 @@ export const addNewProduct = async (url, data) => {
       throw new Error(await response.text());
     }
     const json = await response.json();
-    // console.log(json);
+     console.log(json);
   } catch (e) {
     console.log(e);
   }

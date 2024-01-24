@@ -182,12 +182,36 @@ const editConfirm = async (event) => {
   }
 
   productList = await utility.updateProduct(url, currentId, data);
+  window.location.href = `details.html?id=${currentId}`;
+}
+
+const createConfirm = async(event)=>{
+  event.preventDefault();
+
+  const name = document.getElementById('new_name').value;
+  const description = document.getElementById('new_description').value;
+  const brand = document.getElementById('new_brand').value;
+  const imageUrl = document.getElementById('new_imageUrl').value;
+  const price = parseFloat(document.getElementById('new_price').value);
+
+  const data = {
+    name: name,
+    description: description,
+    brand: brand,
+    imageUrl: imageUrl,
+    price: price
+  }
+
+  await utility.addNewProduct(url, data);
+  window.location.href = `index.html`;
 }
 
 const yesBtn = document.querySelector("#yes");
 yesBtn.addEventListener("click", deleteConfirm);
 const editSubmit = document.querySelector('#editProductForm');
 editSubmit.addEventListener('submit', (event) => { editConfirm(event) });
+const createBtn = document.querySelector("#createProductForm");
+createBtn.addEventListener("submit", (event) => {createConfirm(event)});
 
 const setInfoDelete = (event) => {
   localStorage.setItem("currentId", event.target.id);
@@ -205,8 +229,8 @@ const setEditInfo = async(event) =>{
   document.getElementById('imageUrl').value=currentProduct.imageUrl;
   document.getElementById('price').value=currentProduct.price;
 
-  const saveBtn = document.querySelector("#save_change");
-  saveBtn.setAttribute("href",`details.html?id=${event.target.id}`);
+  // const saveBtn = document.querySelector("#save_change");
+  // saveBtn.setAttribute("href",`details.html?id=${event.target.id}`);
 }
 
 const addDeleteListener = () => {
@@ -228,6 +252,7 @@ const addDeleteListener = () => {
 const start = async () => {
   //productsInit();
   productList = await utility.getProduct(url);
+  productList.reverse();
   products.showProducts(productList);
   const actions = document.querySelector("#actions");
   console.log(actions);

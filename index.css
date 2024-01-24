@@ -3,6 +3,6 @@ a {
   text-decoration: none !important;
 }
 
-#actions:hover {
+ion-icon:hover {
   cursor: pointer;
 }
