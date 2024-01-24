@@ -21,7 +21,32 @@
   <div class="container my-5">
     <h1 class="text-center text-primary">DR MARKETPLACE</h1>
 
-    <!-- DELETE MODAL -->
+    <!---------CART MODAL---------->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+            <button id="close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer justify-content-between">
+            <div id="tot" class="fw-bold"></div>
+            <div>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Close
+              </button>
+              <button id="empty" type="button" class="btn btn-danger">
+                Empty
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---------END CART MODAL---------->
+
+    <!--------- DELETE MODAL ---------->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -122,7 +147,10 @@
         <h1 class="text-warning">Our Products</h1>
         <div class="d-flex gap-3 justify-content-end fs-1 my-3">
           <ion-icon id="actions" name="create-outline"></ion-icon>
-          <ion-icon name="cart"></ion-icon>
+          <button id="cart" type="button" class="btn btn-primary border border-tertiary" data-bs-toggle="modal"
+            data-bs-target="#cartModal">
+            <ion-icon name="cart"></ion-icon>
+          </button>
         </div>
       </div>
     </div>

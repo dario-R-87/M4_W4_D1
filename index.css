@@ -6,3 +6,8 @@ a {
 ion-icon:hover {
   cursor: pointer;
 }
+
+ion-icon[name="cart"]{
+  font-size: 22px;
+  text-align: center;
+}

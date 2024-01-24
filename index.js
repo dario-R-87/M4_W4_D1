@@ -1,5 +1,6 @@
 import * as utility from "./components/utility.js";
 import * as products from "./components/productList.js";
+import * as cartFunc from "./components/cart.js";
 
 let productList = [];
 const url = "https://striveschool-api.herokuapp.com/api/product/";
@@ -159,6 +160,7 @@ const deleteConfirm = async () => {
   const currentId = localStorage.getItem("currentId");
   utility.deleteProduct(url, currentId);
   productList = await utility.getProduct(url);
+  productList.reverse();
   products.showActions(productList);
   addDeleteListener();
 };
@@ -185,7 +187,7 @@ const editConfirm = async (event) => {
   window.location.href = `details.html?id=${currentId}`;
 }
 
-const createConfirm = async(event)=>{
+const createConfirm = async (event) => {
   event.preventDefault();
 
   const name = document.getElementById('new_name').value;
@@ -206,12 +208,19 @@ const createConfirm = async(event)=>{
   window.location.href = `index.html`;
 }
 
-const yesBtn = document.querySelector("#yes");
-yesBtn.addEventListener("click", deleteConfirm);
-const editSubmit = document.querySelector('#editProductForm');
-editSubmit.addEventListener('submit', (event) => { editConfirm(event) });
-const createBtn = document.querySelector("#createProductForm");
-createBtn.addEventListener("submit", (event) => {createConfirm(event)});
+const setBtnListener = () => {
+  const yesBtn = document.querySelector("#yes");
+  yesBtn.addEventListener("click", deleteConfirm);
+  const editSubmit = document.querySelector('#editProductForm');
+  editSubmit.addEventListener('submit', (event) => { editConfirm(event) });
+  const createBtn = document.querySelector("#createProductForm");
+  createBtn.addEventListener("submit", (event) => { createConfirm(event) });
+  const cartBtn = document.querySelector("#cart");
+  cartBtn.addEventListener("click", cartFunc.showCart);
+  const addBtns = document.querySelectorAll(".add");
+  addBtns.forEach((addBtn) => { addBtn.addEventListener("click", (event) => { cartFunc.addCart(event) }) });
+}
+
 
 const setInfoDelete = (event) => {
   localStorage.setItem("currentId", event.target.id);
@@ -219,18 +228,18 @@ const setInfoDelete = (event) => {
   deleteModal.innerHTML = event.target.name;
 };
 
-const setEditInfo = async(event) =>{
+const setEditInfo = async (event) => {
   localStorage.setItem("currentId", event.target.id);
-  const currentProduct = await utility.getProductById(url,event.target.id);
+  const currentProduct = await utility.getProductById(url, event.target.id);
 
-  document.getElementById('name').value=currentProduct.name;
-  document.getElementById('description').value=currentProduct.description;
-  document.getElementById('brand').value=currentProduct.brand;
-  document.getElementById('imageUrl').value=currentProduct.imageUrl;
-  document.getElementById('price').value=currentProduct.price;
+  document.getElementById('name').value = currentProduct.name;
+  document.getElementById('description').value = currentProduct.description;
+  document.getElementById('brand').value = currentProduct.brand;
+  document.getElementById('imageUrl').value = currentProduct.imageUrl;
+  document.getElementById('price').value = currentProduct.price;
 }
 
-const addDeleteListener = () => {
+const addEditDeleteListener = () => {
   const deleteBtns = document.querySelectorAll(".delete");
   deleteBtns.forEach((delBtn) => {
     delBtn.addEventListener("click", (event) => {
@@ -252,11 +261,11 @@ const start = async () => {
   productList.reverse();
   products.showProducts(productList);
   const actions = document.querySelector("#actions");
-  console.log(actions);
   actions.addEventListener("click", () => {
     products.showActions(productList);
-    addDeleteListener();
+    addEditDeleteListener();
   });
+  setBtnListener();
 };
 
-start();
+//start();

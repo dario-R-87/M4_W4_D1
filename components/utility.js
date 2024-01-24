@@ -78,6 +78,6 @@ export const getProductById = async (url, id) => {
     },
   });
   const json = await response.json();
-  console.log(json);
+
   return json;
 };
