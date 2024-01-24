@@ -13,6 +13,7 @@ export const getCard = (prod) => {
              <div class="d-flex gap-3 justify-content-end pb-3">
                  <button class="btn btn-success "><a class="text-light" href="details.html?id=${prod._id}">View Details</a></button>
                  <button id="${prod._id}" class="add btn btn-primary">Add to Cart</button>
+                 <button id="${prod._id}" class="rem d-none btn btn-warning">Remove</button>
              </div>
              </div>
         </div>

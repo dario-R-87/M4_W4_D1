@@ -268,4 +268,4 @@ const start = async () => {
   setBtnListener();
 };
 
-//start();
+start();

@@ -3,7 +3,7 @@ import { getProductById } from "./utility.js";
 const url = "https://striveschool-api.herokuapp.com/api/product/";
 let cart = [];
 
-export const showCart = () => {alert("cart");
+export const showCart = () => {
     document.querySelector(
       "#exampleModalLabel"
     ).innerHTML = `Cart (${cart.length})`;
@@ -18,13 +18,11 @@ export const showCart = () => {alert("cart");
     tot.innerHTML = "Total Amount: $ " + totalAmount.toFixed(2);
   };
 
-  export const addCart = async(event) => {alert("add");
+  export const addCart = async(event) => {
     const id=event.target.id;
-    console.log(id);
     const indexCart = cart.findIndex((item) => item.asin === id);
     if (indexCart === -1) {
       const prod = await getProductById(url, id);
-      console.log(prod);
       cart.push(prod);
       const add = event.target;
       add.classList.add("d-none");
