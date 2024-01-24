@@ -1,9 +1,16 @@
 export const getCard = (prod) => {
+  let cart = [];
+  if (localStorage.getItem("cart"))
+    cart = JSON.parse(localStorage.getItem("cart"));
+  const indexCart = cart.findIndex((item) => item._id === prod._id);
+
   return `
-    <div class="card mb-4 shadow-sm">
+    <div class="${indexCart >= 0 && "added"} card mb-4 shadow-sm">
         <div class="row g-0">
            <div class="col-md-4">
-             <img src="${prod.imageUrl}" class="img-fluid rounded-start" alt="Product Image">
+             <img src="${
+               prod.imageUrl
+             }" class="img-fluid rounded-start" alt="Product Image">
             </div>
           <div class="col-md-8 d-flex flex-column">
              <div class="card-body">
@@ -11,9 +18,15 @@ export const getCard = (prod) => {
                  <p class="card-text">${prod.description}</p>
              </div>
              <div class="d-flex gap-3 justify-content-end pb-3">
-                 <button class="btn btn-success "><a class="text-light" href="details.html?id=${prod._id}">View Details</a></button>
-                 <button id="${prod._id}" class="add btn btn-primary">Add to Cart</button>
-                 <button id="${prod._id}" class="rem d-none btn btn-warning">Remove</button>
+                 <button class="btn btn-success "><a class="text-light" href="details.html?id=${
+                   prod._id
+                 }">View Details</a></button>
+                 <button id="${prod._id}" class="add btn btn-primary ${
+    indexCart >= 0 && "d-none"
+  }">Add to Cart</button>
+                 <button id="${prod._id}" class="rem ${
+    indexCart === -1 && "d-none"
+  } btn btn-warning">Remove</button>
              </div>
              </div>
         </div>

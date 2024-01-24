@@ -169,62 +169,81 @@ const editConfirm = async (event) => {
   event.preventDefault();
   const currentId = localStorage.getItem("currentId");
 
-  const name = document.getElementById('name').value;
-  const description = document.getElementById('description').value;
-  const brand = document.getElementById('brand').value;
-  const imageUrl = document.getElementById('imageUrl').value;
-  const price = parseFloat(document.getElementById('price').value);
+  const name = document.getElementById("name").value;
+  const description = document.getElementById("description").value;
+  const brand = document.getElementById("brand").value;
+  const imageUrl = document.getElementById("imageUrl").value;
+  const price = parseFloat(document.getElementById("price").value);
 
   const data = {
     name: name,
     description: description,
     brand: brand,
     imageUrl: imageUrl,
-    price: price
-  }
+    price: price,
+  };
 
   productList = await utility.updateProduct(url, currentId, data);
   window.location.href = `details.html?id=${currentId}`;
-}
+};
 
 const createConfirm = async (event) => {
   event.preventDefault();
 
-  const name = document.getElementById('new_name').value;
-  const description = document.getElementById('new_description').value;
-  const brand = document.getElementById('new_brand').value;
-  const imageUrl = document.getElementById('new_imageUrl').value;
-  const price = parseFloat(document.getElementById('new_price').value);
+  const name = document.getElementById("new_name").value;
+  const description = document.getElementById("new_description").value;
+  const brand = document.getElementById("new_brand").value;
+  const imageUrl = document.getElementById("new_imageUrl").value;
+  const price = parseFloat(document.getElementById("new_price").value);
 
   const data = {
     name: name,
     description: description,
     brand: brand,
     imageUrl: imageUrl,
-    price: price
-  }
+    price: price,
+  };
 
   await utility.addNewProduct(url, data);
   window.location.href = `index.html`;
-}
+};
 
 const setBtnListener = () => {
   const yesBtn = document.querySelector("#yes");
   yesBtn.addEventListener("click", deleteConfirm);
-  const editSubmit = document.querySelector('#editProductForm');
-  editSubmit.addEventListener('submit', (event) => { editConfirm(event) });
+  const editSubmit = document.querySelector("#editProductForm");
+  editSubmit.addEventListener("submit", (event) => {
+    editConfirm(event);
+  });
   const createBtn = document.querySelector("#createProductForm");
-  createBtn.addEventListener("submit", (event) => { createConfirm(event) });
+  createBtn.addEventListener("submit", (event) => {
+    createConfirm(event);
+  });
   const cartBtn = document.querySelector("#cart");
   cartBtn.addEventListener("click", cartFunc.showCart);
   const addBtns = document.querySelectorAll(".add");
-  addBtns.forEach((addBtn) => { addBtn.addEventListener("click", (event) => { cartFunc.addCart(event) }) });
+  addBtns.forEach((addBtn) => {
+    addBtn.addEventListener("click", (event) => {
+      cartFunc.addCart(event);
+    });
+  });
   const remBtns = document.querySelectorAll(".rem");
-  remBtns.forEach((remBtn) => { remBtn.addEventListener("click", (event) => { cartFunc.removeCart(event) }) });
+  remBtns.forEach((remBtn) => {
+    remBtn.addEventListener("click", (event) => {
+      cartFunc.removeCart(event);
+    });
+  });
   const emptyBtn = document.querySelector("#empty");
   emptyBtn.addEventListener("click", cartFunc.empty);
-}
 
+  cartFunc.isBadge();
+  // let cart = [];
+  // const counter = document.querySelector("#cart_counter");
+  // if (localStorage.getItem("cart"))
+  //   cart = JSON.parse(localStorage.getItem("cart"));
+  // if (cart.length > 0) counter.classList.remove("d-none");
+  // counter.innerHTML = `+${cart.length}`;
+};
 
 const setInfoDelete = (event) => {
   localStorage.setItem("currentId", event.target.id);
@@ -236,12 +255,12 @@ const setEditInfo = async (event) => {
   localStorage.setItem("currentId", event.target.id);
   const currentProduct = await utility.getProductById(url, event.target.id);
 
-  document.getElementById('name').value = currentProduct.name;
-  document.getElementById('description').value = currentProduct.description;
-  document.getElementById('brand').value = currentProduct.brand;
-  document.getElementById('imageUrl').value = currentProduct.imageUrl;
-  document.getElementById('price').value = currentProduct.price;
-}
+  document.getElementById("name").value = currentProduct.name;
+  document.getElementById("description").value = currentProduct.description;
+  document.getElementById("brand").value = currentProduct.brand;
+  document.getElementById("imageUrl").value = currentProduct.imageUrl;
+  document.getElementById("price").value = currentProduct.price;
+};
 
 const addEditDeleteListener = () => {
   const deleteBtns = document.querySelectorAll(".delete");
