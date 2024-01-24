@@ -1,6 +1,5 @@
 export const getProduct = async (url) => {
   const response = await fetch(url, {
-    // mode: "no-cors",
     headers: {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmNzEzOGJkNWQxMjAwMTg5MGQzNGEiLCJpYXQiOjE3MDU5OTY2MDEsImV4cCI6MTcwNzIwNjIwMX0.rqjzekJT_GldBSBaPaU7hvuNZqNKslByYrGtOgoG19g",
@@ -46,7 +45,6 @@ export const deleteProduct = async (url, id) => {
       throw new Error(await response.text());
     }
     const json = await response.json();
-    // console.log(json);
   } catch (error) {
     console.log(error);
   }
@@ -67,7 +65,6 @@ export const updateProduct = async (url, id, data) => {
       throw new Error(await response.text());
     }
     const json = await response.json();
-    // console.log(json);
   } catch (e) {
     console.log(e);
   }

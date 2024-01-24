@@ -1,20 +1,5 @@
 import { getCard, getCardAction } from "./card.js";
 
-// const setInfoDelete = (event) => {
-//   localStorage.setItem("currentId", event.target.id);
-//   const deleteModal = document.querySelector("#deleteModal .modal-body");
-//   deleteModal.innerHTML = event.target.id;
-// };
-
-// const addDeleteListener = () => {
-//   const deleteBtns = document.querySelectorAll(".delete");
-//   deleteBtns.forEach((delBtn) => {
-//     delBtn.addEventListener("click", (event) => {
-//       setInfoDelete(event);
-//     });
-//   });
-// };
-
 export const showProducts = (products) => {
   const actions = document.querySelector("#actions_cont");
   actions.classList.add("d-none");

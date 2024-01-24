@@ -228,9 +228,6 @@ const setEditInfo = async(event) =>{
   document.getElementById('brand').value=currentProduct.brand;
   document.getElementById('imageUrl').value=currentProduct.imageUrl;
   document.getElementById('price').value=currentProduct.price;
-
-  // const saveBtn = document.querySelector("#save_change");
-  // saveBtn.setAttribute("href",`details.html?id=${event.target.id}`);
 }
 
 const addDeleteListener = () => {

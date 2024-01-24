@@ -11,5 +11,3 @@ const url="https://striveschool-api.herokuapp.com/api/product/";
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 getProduct(url,id);
-
-// alert(id);
