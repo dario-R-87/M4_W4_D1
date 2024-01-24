@@ -1,143 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <script defer src="./index.js" type="module"></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Marketplace</title>
-    <link rel="stylesheet" href="./index.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link rel="icon" type="image/gif" href="./assets/favicon.png" />
-  </head>
-  <body>
-    <div class="container my-5">
-      <h1 class="text-center text-primary">DR MARKETPLACE</h1>
 
-      <!-- MODAL DELETE -->
-      <div
-        class="modal fade"
-        id="deleteModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Delete Product
-              </h1>
-              <button
-                id="close"
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body"></div>
-            <div class="modal-footer justify-content-between">
-              <div id="tot" class="fw-bold">Are you sure?</div>
-              <div>
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  No
-                </button>
-                <button
-                  id="yes"
-                  type="button"
-                  class="btn btn-danger"
-                  data-bs-dismiss="modal"
-                >
-                  Yes
-                </button>
-              </div>
+<head>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script defer src="./index.js" type="module"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marketplace</title>
+  <link rel="stylesheet" href="./index.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="icon" type="image/gif" href="./assets/favicon.png" />
+</head>
+
+<body>
+  <div class="container my-5">
+    <h1 class="text-center text-primary">DR MARKETPLACE</h1>
+
+    <!-- DELETE MODAL -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Delete Product
+            </h1>
+            <button id="close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer justify-content-between">
+            <div id="tot" class="fw-bold">Are you sure?</div>
+            <div>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                No
+              </button>
+              <button id="yes" type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                Yes
+              </button>
             </div>
           </div>
         </div>
       </div>
-      <!--     END MODAL DELETE        -->
-
-      <!--     LIST        -->
-      <div class="my-2 row px-3" id="produtct_list">
-        <div class="mt-5 d-flex align-items-center justify-content-between">
-          <h1 class="text-warning">Our Products</h1>
-          <div class="d-flex gap-3 justify-content-end fs-1 my-3">
-            <ion-icon id="actions" name="create-outline"></ion-icon>
-            <ion-icon name="cart"></ion-icon>
+    </div>
+    <!--     END DELETE MODAL        -->
+    <!-- EDIT MODAL -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Edit Product
+            </h1>
+            <button id="close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="editProductForm" class="d-flex align-items-center gap-3">
+              <div class="d-flex  flex-column">
+                <label for="name">Name:</label>
+                <label for="description">Description:</label>
+                <label for="brand">Brand:</label>
+                <label for="imageUrl">Image URL:</label>
+                <label for="price">Price:</label>
+              </div>
+              <div class="d-flex flex-column">
+                <input type="text" id="name" name="name" value="" required>
+                <textarea id="description" name="description"
+                required></textarea>
+                <input type="text" id="brand" name="brand" value="" required>
+                <input type="text" id="imageUrl" name="imageUrl" value="" required>
+                <input type="number" id="price" name="price" value="" step="0.01" required>
+              </div>
+              <a id="save_change" href=""><button type="submit" data-bs-dismiss="modal">Save Changes</button></a>
+            </form>
           </div>
         </div>
-        <!-- <h1 class="text-warning">Our Products</h1>
+      </div>
+    </div>
+    <!--     END MODAL DELETE        -->
+
+    <!--     LIST  PROD.      -->
+    <div class="my-2 row px-3" id="produtct_list">
+      <div class="mt-5 d-flex align-items-center justify-content-between">
+        <h1 class="text-warning">Our Products</h1>
         <div class="d-flex gap-3 justify-content-end fs-1 my-3">
           <ion-icon id="actions" name="create-outline"></ion-icon>
           <ion-icon name="cart"></ion-icon>
-        </div> -->
-        <!-- -->
-        <!-- <div class="card mb-4 shadow-sm">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img
-                src="./assets/p1_.jpg"
-                class="img-fluid rounded-start"
-                alt="Product Image"
-              />
-            </div>
-            <div class="col-md-8 d-flex flex-column">
-              <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-              </div>
-              <div class="d-flex gap-3 justify-content-end pb-3">
-                <button class="btn btn-success">
-                  <a class="text-light" href="details.html?id=${prod._id}"
-                    >View Details</a
-                  >
-                </button>
-                <button class="btn btn-primary">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- a -->
-      </div>
-      <!--     ACTIONS        -->
-      <div class="d-none" id="actions_cont">
-        <div class="mt-5 d-flex align-items-center justify-content-between">
-          <h1 class="text-warning">
-            <a href="./index.html"
-              ><ion-icon name="arrow-undo-outline"></ion-icon
-            ></a>
-            Actions
-          </h1>
-          <div class="d-flex gap-3 justify-content-end fs-1 my-3">
-            <ion-icon name="add-circle-outline"></ion-icon>
-          </div>
         </div>
-        <div class="my-2 row px-3" id="produtct_actions"></div>
       </div>
-      <!-- END ACTIONS -->
+
+      <!-- -->
+      <div class="card mb-4 shadow-sm d-flex justify-content-between">
+        <h5 class="card-title">nome prd</h5>
+
+        <button id="aaa" type="button" class="edit w-25" data-bs-toggle="modal" data-bs-target="#editModal">
+          Edit
+        </button>
+        <button id="aaa" name="aaa" type="button" class="delete w-25" data-bs-toggle="modal"
+          data-bs-target="#deleteModal">
+          Delete
+        </button>
+      </div>
+      <!-- a -->
     </div>
-  </body>
+    <!--     ACTIONS        -->
+    <div class="d-none" id="actions_cont">
+      <div class="mt-5 d-flex align-items-center justify-content-between">
+        <h1 class="text-warning">
+          <a href="./index.html"><ion-icon name="arrow-undo-outline"></ion-icon></a>
+          Actions
+        </h1>
+        <div class="d-flex gap-3 justify-content-end fs-1 my-3">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </div>
+      </div>
+      <div class="my-2 row px-3" id="produtct_actions"></div>
+    </div>
+    <!-- END ACTIONS -->
+  </div>
+</body>
+
 </html>

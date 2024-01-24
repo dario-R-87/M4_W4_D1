@@ -23,7 +23,16 @@ export const getCardAction = (prod) => {
   return `
   <div class="card mb-4 shadow-sm d-flex justify-content-between">
       <h5 class="card-title">${prod.name}</h5>
-      <a href="#">Edit</a>
+      
+      <button
+      id="${prod._id}"
+      type="button"
+      class="edit w-25"
+      data-bs-toggle="modal"
+      data-bs-target="#editModal"
+     >
+       Edit
+     </button>
       <button
        id="${prod._id}"
        name="${prod.name}"
