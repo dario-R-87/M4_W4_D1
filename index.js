@@ -219,6 +219,10 @@ const setBtnListener = () => {
   cartBtn.addEventListener("click", cartFunc.showCart);
   const addBtns = document.querySelectorAll(".add");
   addBtns.forEach((addBtn) => { addBtn.addEventListener("click", (event) => { cartFunc.addCart(event) }) });
+  const remBtns = document.querySelectorAll(".rem");
+  remBtns.forEach((remBtn) => { remBtn.addEventListener("click", (event) => { cartFunc.removeCart(event) }) });
+  const emptyBtn = document.querySelector("#empty");
+  emptyBtn.addEventListener("click", cartFunc.empty);
 }
 
 
