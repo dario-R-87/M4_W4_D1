@@ -182,9 +182,11 @@ const editConfirm = async (event) => {
     imageUrl: imageUrl,
     price: price,
   };
-
+  const origin =
+    window.location.origin +
+    (window.location.protocol === "https:" ? "/M4_W4_D1" : "");
   productList = await utility.updateProduct(url, currentId, data);
-  window.location.href = `details.html?id=${currentId}`;
+  window.location.href = `${origin}/details.html?id=${currentId}`;
 };
 
 const createConfirm = async (event) => {
@@ -203,9 +205,11 @@ const createConfirm = async (event) => {
     imageUrl: imageUrl,
     price: price,
   };
-
+  const origin =
+    window.location.origin +
+    (window.location.protocol === "https:" ? "/M4_W4_D1" : "");
   await utility.addNewProduct(url, data);
-  window.location.href = `index.html`;
+  window.location.href = `${origin}/index.html`;
 };
 
 const setBtnListener = () => {
@@ -237,12 +241,11 @@ const setBtnListener = () => {
   emptyBtn.addEventListener("click", cartFunc.empty);
 
   cartFunc.isBadge();
-  // let cart = [];
-  // const counter = document.querySelector("#cart_counter");
-  // if (localStorage.getItem("cart"))
-  //   cart = JSON.parse(localStorage.getItem("cart"));
-  // if (cart.length > 0) counter.classList.remove("d-none");
-  // counter.innerHTML = `+${cart.length}`;
+  const origin =
+    window.location.origin +
+    (window.location.protocol === "https:" ? "/M4_W4_D1" : "");
+  const arrow = document.querySelector("#arrow");
+  arrow.setAttribute("href", `${origin}/index.html`);
 };
 
 const setInfoDelete = (event) => {

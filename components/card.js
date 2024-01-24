@@ -1,3 +1,7 @@
+const origin =
+  window.location.origin +
+  (window.location.protocol === "https:" ? "/M4_W4_D1" : "");
+
 export const getCard = (prod) => {
   let cart = [];
   if (localStorage.getItem("cart"))
@@ -18,9 +22,9 @@ export const getCard = (prod) => {
                  <p class="card-text">${prod.description}</p>
              </div>
              <div class="d-flex gap-3 justify-content-end pb-3">
-                 <button class="btn btn-success "><a class="text-light" href="details.html?id=${
-                   prod._id
-                 }">View Details</a></button>
+                 <button class="btn btn-success "><a class="text-light" href="${origin}/details.html?id=${
+    prod._id
+  }">View Details</a></button>
                  <button id="${prod._id}" class="add btn btn-primary ${
     indexCart >= 0 && "d-none"
   }">Add to Cart</button>
@@ -83,7 +87,7 @@ export const getCardDetails = (card) => {
               )}</small></p>
             </div>
             <div class="d-flex gap-3 justify-content-end pb-3">
-             <button class="btn btn-success "><a class="text-light" href="index.html">Home</a></button>
+             <button class="btn btn-success "><a class="text-light" href="${origin}/index.html">Home</a></button>
              <button class="btn btn-primary">Add to Cart</button>
             </div>
           </div>
