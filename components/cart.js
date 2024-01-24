@@ -3,6 +3,7 @@ import { getProductById } from "./utility.js";
 const url = "https://striveschool-api.herokuapp.com/api/product/";
 let cart = [];
 
+
 export const showCart = () => {
   document.querySelector(
     "#exampleModalLabel"
@@ -16,6 +17,8 @@ export const showCart = () => {
   const totalAmount = cart.reduce((acc, item) => acc + item.price, 0);
   const tot = document.querySelector("#tot");
   tot.innerHTML = "Total Amount: $ " + totalAmount.toFixed(2);
+  const counter = document.querySelector("#cart_counter");
+  if(cart.length>0) counter.classList.remove("d-none");
 };
 
 export const addCart = async (event) => {
@@ -28,6 +31,8 @@ export const addCart = async (event) => {
   rem.classList.remove("d-none");
   let card = event.target.closest(".card");
   card.classList.add("added");
+  const counter = document.querySelector("#cart_counter");
+  counter.innerHTML= `+${cart.length}`;
 };
 
 export const removeCart = (event) => {
@@ -39,6 +44,8 @@ export const removeCart = (event) => {
   add.classList.remove("d-none");
   let card = event.target.closest(".card");
   card.classList.remove("added");
+  const counter = document.querySelector("#cart_counter");
+  counter.innerHTML= `+${cart.length}`;
 };
 
 export const empty = () => {
@@ -50,4 +57,7 @@ export const empty = () => {
   adds.forEach((add)=>{add.classList.remove("d-none");});
   const rems = document.querySelectorAll(".rem");
   rems.forEach((rem)=>{rem.classList.add("d-none");});
+  const counter = document.querySelector("#cart_counter");
+  counter.innerHTML= `+${cart.length}`;
+  counter.classList.add("d-none");
 };
