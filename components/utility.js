@@ -1,13 +1,17 @@
 export const getProduct = async (url) => {
-  const response = await fetch(url, {
+  try {
+      const response = await fetch(url, {
     headers: {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmNzEzOGJkNWQxMjAwMTg5MGQzNGEiLCJpYXQiOjE3MDU5OTY2MDEsImV4cCI6MTcwNzIwNjIwMX0.rqjzekJT_GldBSBaPaU7hvuNZqNKslByYrGtOgoG19g",
     },
   });
   const json = await response.json();
-  console.log(json);
   return json;
+  } catch (error) {
+    alert("Error: "+error);
+  }
+
 };
 
 export const addNewProduct = async (url, data) => {
@@ -25,9 +29,8 @@ export const addNewProduct = async (url, data) => {
       throw new Error(await response.text());
     }
     const json = await response.json();
-     console.log(json);
   } catch (e) {
-    console.log(e);
+    alert("Error: "+e);
   }
 };
 
@@ -46,7 +49,7 @@ export const deleteProduct = async (url, id) => {
     }
     const json = await response.json();
   } catch (error) {
-    console.log(error);
+    alert("Error: "+error);
   }
 };
 
@@ -66,12 +69,13 @@ export const updateProduct = async (url, id, data) => {
     }
     const json = await response.json();
   } catch (e) {
-    console.log(e);
+    alert("Error: "+e);
   }
 };
 
 export const getProductById = async (url, id) => {
-  const response = await fetch(url + id, {
+  try {
+      const response = await fetch(url + id, {
     headers: {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmNzEzOGJkNWQxMjAwMTg5MGQzNGEiLCJpYXQiOjE3MDU5OTY2MDEsImV4cCI6MTcwNzIwNjIwMX0.rqjzekJT_GldBSBaPaU7hvuNZqNKslByYrGtOgoG19g",
@@ -80,4 +84,8 @@ export const getProductById = async (url, id) => {
   const json = await response.json();
 
   return json;
+  } catch (error) {
+    alert("Error: "+error);
+  }
+
 };

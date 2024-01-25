@@ -24,7 +24,6 @@ export const addCart = async (event) => {
   const id = event.target.id;
   const prod = await getProductById(url, id);
   cart.push(prod);
-  //localStorage.setItem("cart", cart);
   localStorage.setItem("cart", JSON.stringify(cart));
   const add = event.target;
   add.classList.add("d-none");
@@ -40,7 +39,6 @@ export const addCart = async (event) => {
 export const removeCart = (event) => {
   const id = event.target.id;
   cart = cart.filter((prod) => prod._id !== id);
-  //localStorage.setItem("cart", cart);
   localStorage.setItem("cart", JSON.stringify(cart));
   const rem = event.target;
   rem.classList.add("d-none");
@@ -55,7 +53,6 @@ export const removeCart = (event) => {
 
 export const empty = () => {
   cart = [];
-  //localStorage.setItem("cart", cart);
   localStorage.setItem("cart", JSON.stringify(cart));
   showCart();
   const cards = document.querySelectorAll(".card");
