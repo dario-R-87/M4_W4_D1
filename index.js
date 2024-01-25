@@ -6,7 +6,7 @@ let productList = [];
 const url = "https://striveschool-api.herokuapp.com/api/product/";
 
 /*
-this function was used once to insert new data into the API
+this function, productsInit, was used once to insert new data into the API
 via POST, because initially there was no data
 */
 const productsInit = () => {
@@ -88,9 +88,11 @@ const productsInit = () => {
   });
 };
 
+/* The next 3 functions simply 
+do the operations of create, edit and delete */
 const deleteConfirm = async () => {
   const currentId = localStorage.getItem("currentId");
-  utility.deleteProduct(url, currentId);
+  await utility.deleteProduct(url, currentId);
   productList = await utility.getProduct(url);
   productList.reverse();
   products.showActions(productList);
@@ -141,10 +143,12 @@ const createConfirm = async (event) => {
     window.location.origin +
     (window.location.protocol === "https:" ? "/M4_W4_D1" : "");
   const created = await utility.addNewProduct(url, data);
-  if(created)
-    window.location.href = `${origin}/index.html`;
+  if (created) window.location.href = `${origin}/index.html`;
 };
 
+/* here I associate the various buttons 
+of the app with the relative eventListeners 
+to manage the various functionalities */
 const setBtnListener = () => {
   const yesBtn = document.querySelector("#yes");
   yesBtn.addEventListener("click", deleteConfirm);
@@ -181,12 +185,20 @@ const setBtnListener = () => {
   arrow.setAttribute("href", `${origin}/index.html`);
 };
 
+/* Here I store the current product ID, 
+and put the product name in the modal 
+that will be opened */
 const setInfoDelete = (event) => {
   localStorage.setItem("currentId", event.target.id);
   const deleteModal = document.querySelector("#deleteModal .modal-body");
   deleteModal.innerHTML = event.target.name;
 };
 
+/* In this function I memorize the ID 
+of the current product, 
+I go to get the relative product and with it 
+I enter the values in the relevant fields of 
+the form, which will be displayed for the update */
 const setEditInfo = async (event) => {
   localStorage.setItem("currentId", event.target.id);
   const currentProduct = await utility.getProductById(url, event.target.id);
@@ -198,6 +210,9 @@ const setEditInfo = async (event) => {
   document.getElementById("price").value = currentProduct.price;
 };
 
+/* Function called from within the Start function,
+used to bind newly created buttons to functions 
+(see comments about those functions) */
 const addEditDeleteListener = () => {
   const deleteBtns = document.querySelectorAll(".delete");
   deleteBtns.forEach((delBtn) => {
@@ -214,6 +229,7 @@ const addEditDeleteListener = () => {
   });
 };
 
+/* Function used to start the application */
 const start = async () => {
   /*only call of "productsInit()" function made to initialize the api*/
   //productsInit();
