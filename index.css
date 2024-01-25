@@ -12,6 +12,10 @@ ion-icon[name="cart"]{
   text-align: center;
 }
 
+ion-icon#add{
+  font-size: 32px;
+}
+
 .added {
   border: 5px solid rgb(0, 102, 255) !important;
 }
@@ -27,4 +31,8 @@ ion-icon[name="cart"]{
   font-size: 14px;
   text-align: center;
   font-weight: bold;
+}
+
+.edit, .delete{
+  margin-block-end: 10px;
 }

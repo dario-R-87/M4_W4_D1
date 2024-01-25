@@ -40,12 +40,12 @@ export const getCard = (prod) => {
 export const getCardAction = (prod) => {
   return `
   <div class="card mb-4 shadow-sm d-flex justify-content-between">
-      <h5 class="card-title">${prod.name}</h5>
+      <h2 class="text-center card-title">${prod.name}</h2>
       
       <button
       id="${prod._id}"
       type="button"
-      class="edit w-25"
+      class="edit w-25 btn btn-warning"
       data-bs-toggle="modal"
       data-bs-target="#editModal"
      >
@@ -55,7 +55,7 @@ export const getCardAction = (prod) => {
        id="${prod._id}"
        name="${prod.name}"
        type="button"
-       class="delete w-25"
+       class="delete w-25 btn btn-danger"
        data-bs-toggle="modal"
        data-bs-target="#deleteModal"
       >
@@ -88,7 +88,6 @@ export const getCardDetails = (card) => {
             </div>
             <div class="d-flex gap-3 justify-content-end pb-3">
              <button class="btn btn-success "><a class="text-light" href="${origin}/index.html">Home</a></button>
-             <button class="btn btn-primary">Add to Cart</button>
             </div>
           </div>
         </div>
