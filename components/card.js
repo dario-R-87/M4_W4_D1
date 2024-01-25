@@ -18,8 +18,8 @@ export const getCard = (prod) => {
             </div>
           <div class="col-md-8 d-flex flex-column">
              <div class="card-body">
-                 <h5 class="card-title">${prod.name}</h5>
-                 <p class="card-text">${prod.description}</p>
+                 <h2 class="card-title">${prod.name}</h2>
+                 <h4 class="card-text">${prod.description}</h4>
              </div>
              <div class="d-flex gap-3 justify-content-end pb-3">
                  <button class="btn btn-success "><a class="text-light" href="${origin}/details.html?id=${
