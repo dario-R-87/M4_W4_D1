@@ -9,7 +9,7 @@ export const getProduct = async (url) => {
   const json = await response.json();
   return json;
   } catch (error) {
-    alert("Error: "+error);
+    alert(error);
   }
 
 };
@@ -29,8 +29,9 @@ export const addNewProduct = async (url, data) => {
       throw new Error(await response.text());
     }
     const json = await response.json();
+    return json;
   } catch (e) {
-    alert("Error: "+e);
+    alert(e);
   }
 };
 
@@ -49,7 +50,7 @@ export const deleteProduct = async (url, id) => {
     }
     const json = await response.json();
   } catch (error) {
-    alert("Error: "+error);
+    alert(error);
   }
 };
 
@@ -69,7 +70,7 @@ export const updateProduct = async (url, id, data) => {
     }
     const json = await response.json();
   } catch (e) {
-    alert("Error: "+e);
+    alert(e);
   }
 };
 
@@ -85,7 +86,7 @@ export const getProductById = async (url, id) => {
 
   return json;
   } catch (error) {
-    alert("Error: "+error);
+    alert(error);
   }
 
 };

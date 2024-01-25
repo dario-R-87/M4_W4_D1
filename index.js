@@ -94,7 +94,7 @@ const deleteConfirm = async () => {
   productList = await utility.getProduct(url);
   productList.reverse();
   products.showActions(productList);
-  addDeleteListener();
+  addEditDeleteListener();
 };
 
 const editConfirm = async (event) => {
@@ -117,7 +117,7 @@ const editConfirm = async (event) => {
   const origin =
     window.location.origin +
     (window.location.protocol === "https:" ? "/M4_W4_D1" : "");
-  productList = await utility.updateProduct(url, currentId, data);
+  await utility.updateProduct(url, currentId, data);
   window.location.href = `${origin}/details.html?id=${currentId}`;
 };
 
@@ -140,8 +140,9 @@ const createConfirm = async (event) => {
   const origin =
     window.location.origin +
     (window.location.protocol === "https:" ? "/M4_W4_D1" : "");
-  await utility.addNewProduct(url, data);
-  window.location.href = `${origin}/index.html`;
+  const created = await utility.addNewProduct(url, data);
+  if(created)
+    window.location.href = `${origin}/index.html`;
 };
 
 const setBtnListener = () => {
