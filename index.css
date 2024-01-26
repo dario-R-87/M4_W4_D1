@@ -49,7 +49,7 @@ form label {
 }
 
 .loader {
-  border: 16px solid #f3f3f3;
+  border: 16px solid #ffc107;
   border-top: 16px solid blue;
   border-radius: 50%;
   width: 120px;
