@@ -1,4 +1,4 @@
-body{
+body {
   background-color: #e5eff9 !important;
 }
 
@@ -10,12 +10,12 @@ ion-icon:hover {
   cursor: pointer;
 }
 
-ion-icon[name="cart"]{
+ion-icon[name="cart"] {
   font-size: 22px;
   text-align: center;
 }
 
-ion-icon#add{
+ion-icon#add {
   font-size: 32px;
 }
 
@@ -23,8 +23,7 @@ ion-icon#add{
   border: 5px solid rgb(0, 102, 255) !important;
 }
 
-
-.cart_counter{
+.cart_counter {
   width: 28px;
   height: 28px;
   background-color: aquamarine;
@@ -36,14 +35,34 @@ ion-icon#add{
   font-weight: bold;
 }
 
-.edit, .delete{
+.edit,
+.delete {
   margin-block-end: 10px;
 }
 
-form label{
+form label {
   display: block;
 }
 
-.card{
+.card {
   background-image: url("./assets/bachground_card2.webp");
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid blue;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin-inline: auto;
+  margin-block: 100px;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

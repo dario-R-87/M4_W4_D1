@@ -88,12 +88,30 @@ const productsInit = () => {
   });
 };
 
+/* this function handle the spin loader and 
+the relative html element that needs to be hidden/shown */
+export const toggleLoader = (hide) => {
+  const loader = document.querySelector(".loader");
+  const hideItem = document.querySelector(hide);
+  if (loader.classList.contains("d-none")) {
+    loader.classList.remove("d-none");
+    hideItem.classList.add("d-none");
+  } else {
+    setTimeout(() => {
+      loader.classList.add("d-none");
+      hideItem.classList.remove("d-none");
+    }, 1000);
+  }
+};
+
 /* The next 3 functions simply 
 do the operations of create, edit and delete */
 const deleteConfirm = async () => {
   const currentId = localStorage.getItem("currentId");
+  toggleLoader("#actions_cont");
   await utility.deleteProduct(url, currentId);
   productList = await utility.getProduct(url);
+  toggleLoader("#actions_cont");
   productList.reverse();
   products.showActions(productList);
   addEditDeleteListener();
@@ -233,7 +251,9 @@ const addEditDeleteListener = () => {
 const start = async () => {
   /*only call of "productsInit()" function made to initialize the api*/
   //productsInit();
+  toggleLoader("#produtct_list");
   productList = await utility.getProduct(url);
+  toggleLoader("#produtct_list");
   productList.reverse();
   products.showProducts(productList);
   const actions = document.querySelector("#actions");

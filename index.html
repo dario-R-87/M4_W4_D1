@@ -145,53 +145,50 @@
               ></button>
             </div>
             <div class="modal-body">
-              <form
-                id="editProductForm"
-                class="d-flex flex-column  gap-3"
-              >
-              <div>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" value="" required />
-              </div>
-              <div>
-                <label for="description">Description</label>
-                <textarea
-                id="description"
-                name="description"
-                required
-              ></textarea>
-              </div>
-              <div>
-                <label for="brand">Brand</label>
-                <input 
-                type="text"
-                id="brand"
-                name="brand"
-                value=""
-                required
-              />
-              </div>
-              <div>
-                <label for="imageUrl">Image URL</label>
-                <input 
-                type="text"
-                id="imageUrl"
-                name="imageUrl"
-                value=""
-                required
-                />
-              </div>
-              <div>
-                <label for="price">Price</label>
-                <input 
-                type="number"
-                id="price"
-                name="price"
-                value=""
-                step="0.01"
-                required
-                />
-              </div>
+              <form id="editProductForm" class="d-flex flex-column gap-3">
+                <div>
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" value="" required />
+                </div>
+                <div>
+                  <label for="description">Description</label>
+                  <textarea
+                    id="description"
+                    name="description"
+                    required
+                  ></textarea>
+                </div>
+                <div>
+                  <label for="brand">Brand</label>
+                  <input
+                    type="text"
+                    id="brand"
+                    name="brand"
+                    value=""
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="imageUrl">Image URL</label>
+                  <input
+                    type="text"
+                    id="imageUrl"
+                    name="imageUrl"
+                    value=""
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="price">Price</label>
+                  <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    value=""
+                    step="0.01"
+                    required
+                  />
+                </div>
                 <button class="btn btn-secondary" type="submit">
                   Save Changes
                 </button>
@@ -225,55 +222,58 @@
               ></button>
             </div>
             <div class="modal-body">
-              <form
-                id="createProductForm"
-                class="d-flex flex-column  gap-3"
-              >
-              <div>
-                <label for="name">Name</label>
-                <input type="text" id="new_name" name="name" value="" required />
-              </div>
-              <div>
-                <label for="description">Description</label>
-                <textarea
-                id="new_description"
-                name="description"
-                required
-              ></textarea>
-              </div>
-              <div>
-                <label for="brand">Brand</label>
-                <input 
-                type="text"
-                id="new_brand"
-                name="brand"
-                value=""
-                required
-              />
-              </div>
-              <div>
-                <label for="imageUrl">Image URL</label>
-                <input 
-                type="text"
-                id="new_imageUrl"
-                name="imageUrl"
-                value=""
-                required
-                />
-              </div>
-              <div>
-                <label for="price">Price</label>
-                <input 
-                type="number"
-                id="new_price"
-                name="price"
-                value=""
-                step="0.01"
-                required
-                />
-              </div>
+              <form id="createProductForm" class="d-flex flex-column gap-3">
+                <div>
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="new_name"
+                    name="name"
+                    value=""
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="description">Description</label>
+                  <textarea
+                    id="new_description"
+                    name="description"
+                    required
+                  ></textarea>
+                </div>
+                <div>
+                  <label for="brand">Brand</label>
+                  <input
+                    type="text"
+                    id="new_brand"
+                    name="brand"
+                    value=""
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="imageUrl">Image URL</label>
+                  <input
+                    type="text"
+                    id="new_imageUrl"
+                    name="imageUrl"
+                    value=""
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="price">Price</label>
+                  <input
+                    type="number"
+                    id="new_price"
+                    name="price"
+                    value=""
+                    step="0.01"
+                    required
+                  />
+                </div>
                 <!-- <button class="btn btn-success" id="create" type="submit" data-bs-dismiss="modal"> -->
-                  <button class="btn btn-success" id="create" type="submit">
+                <button class="btn btn-success" id="create" type="submit">
                   Create
                 </button>
               </form>
@@ -282,9 +282,9 @@
         </div>
       </div>
       <!-------END ADD MODAL-------->
-
+      <div class="loader"></div>
       <!--     LIST  PROD.      -->
-      <div class="my-2 row px-3" id="produtct_list">
+      <div class="my-2 row px-3 d-none" id="produtct_list">
         <div class="mt-5 d-flex align-items-center justify-content-between">
           <h1 class="text-warning">Our Products</h1>
           <div
