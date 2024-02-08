@@ -1,17 +1,16 @@
 export const getProduct = async (url) => {
   try {
-      const response = await fetch(url, {
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmNzEzOGJkNWQxMjAwMTg5MGQzNGEiLCJpYXQiOjE3MDU5OTY2MDEsImV4cCI6MTcwNzIwNjIwMX0.rqjzekJT_GldBSBaPaU7hvuNZqNKslByYrGtOgoG19g",
-    },
-  });
-  const json = await response.json();
-  return json;
+    const response = await fetch(url, {
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM1MjQ3YWUyMTA2NTAwMTllYTkzMDAiLCJpYXQiOjE3MDc0MTg3NDcsImV4cCI6MTcwODYyODM0N30.HDGA_Vwl2ZmxgFRp581pxFjUBnVS3h__VgWgjgvRXKE",
+      },
+    });
+    const json = await response.json();
+    return json;
   } catch (error) {
     alert(error);
   }
-
 };
 
 export const addNewProduct = async (url, data) => {
@@ -21,7 +20,7 @@ export const addNewProduct = async (url, data) => {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmNzEzOGJkNWQxMjAwMTg5MGQzNGEiLCJpYXQiOjE3MDU5OTY2MDEsImV4cCI6MTcwNzIwNjIwMX0.rqjzekJT_GldBSBaPaU7hvuNZqNKslByYrGtOgoG19g",
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM1MjQ3YWUyMTA2NTAwMTllYTkzMDAiLCJpYXQiOjE3MDc0MTg3NDcsImV4cCI6MTcwODYyODM0N30.HDGA_Vwl2ZmxgFRp581pxFjUBnVS3h__VgWgjgvRXKE",
       },
       body: JSON.stringify(data),
     });
@@ -42,7 +41,7 @@ export const deleteProduct = async (url, id) => {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmNzEzOGJkNWQxMjAwMTg5MGQzNGEiLCJpYXQiOjE3MDU5OTY2MDEsImV4cCI6MTcwNzIwNjIwMX0.rqjzekJT_GldBSBaPaU7hvuNZqNKslByYrGtOgoG19g",
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM1MjQ3YWUyMTA2NTAwMTllYTkzMDAiLCJpYXQiOjE3MDc0MTg3NDcsImV4cCI6MTcwODYyODM0N30.HDGA_Vwl2ZmxgFRp581pxFjUBnVS3h__VgWgjgvRXKE",
       },
     });
     if (!response.ok) {
@@ -61,7 +60,7 @@ export const updateProduct = async (url, id, data) => {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmNzEzOGJkNWQxMjAwMTg5MGQzNGEiLCJpYXQiOjE3MDU5OTY2MDEsImV4cCI6MTcwNzIwNjIwMX0.rqjzekJT_GldBSBaPaU7hvuNZqNKslByYrGtOgoG19g",
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM1MjQ3YWUyMTA2NTAwMTllYTkzMDAiLCJpYXQiOjE3MDc0MTg3NDcsImV4cCI6MTcwODYyODM0N30.HDGA_Vwl2ZmxgFRp581pxFjUBnVS3h__VgWgjgvRXKE",
       },
       body: JSON.stringify(data),
     });
@@ -76,17 +75,16 @@ export const updateProduct = async (url, id, data) => {
 
 export const getProductById = async (url, id) => {
   try {
-      const response = await fetch(url + id, {
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmNzEzOGJkNWQxMjAwMTg5MGQzNGEiLCJpYXQiOjE3MDU5OTY2MDEsImV4cCI6MTcwNzIwNjIwMX0.rqjzekJT_GldBSBaPaU7hvuNZqNKslByYrGtOgoG19g",
-    },
-  });
-  const json = await response.json();
+    const response = await fetch(url + id, {
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM1MjQ3YWUyMTA2NTAwMTllYTkzMDAiLCJpYXQiOjE3MDc0MTg3NDcsImV4cCI6MTcwODYyODM0N30.HDGA_Vwl2ZmxgFRp581pxFjUBnVS3h__VgWgjgvRXKE",
+      },
+    });
+    const json = await response.json();
 
-  return json;
+    return json;
   } catch (error) {
     alert(error);
   }
-
 };
